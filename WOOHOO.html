@@ -2,6 +2,9 @@
   <head>
     <title>WOOHOO</title>
     <style>
+      .hidden{
+        display: none;
+      }
        body {
  background-image: url('pictures/rainbow glitter.gif');
       }
@@ -23,7 +26,10 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 60%;
+      }
+      div {
+  text-align: center;
       }
     </style>
   </head>
@@ -33,12 +39,27 @@
     <div>
       <audio id="audio" src="pictures/win sound effect.mp3" autostart="false"></audio>
       <button onclick="clickYAY();">YAY</button>
+      <img src="pictures/throw confetti.gif" class="hidden" id="throw confetti">
     </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
       function clickYAY(){
         var sound = document.getElementById('audio');
         sound.play();
       }
+      $.fn.center = function () {
+        this.css("position","absolute");
+        this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + $(window).scrollTop()) + "px");
+        this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+        return this;
+      }
+
+      $("#YAY").on("click", function(){
+        $("#throw confetti").fadeIn().center();
+        setTimeout(function(){
+  $("#throw confetti").fadeOut()
+}, 1000);
+});
     </script>
      <img src="pictures/party.png"> 
   </body>
