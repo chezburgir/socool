@@ -23,7 +23,24 @@
         onclick="chooseOption('store')">GO TO THE STORE</button>
     </div>
 
+<script>
+  function chooseOption(choice){
+    var imageElement=
+      document.getElementByld('image');
+    var textElement=
+      document.gerElementByld('text');
+    var options=
+      document.querySelectorAll('option');
 
+    if(choice==='fridge'){
+      imageElement.src='pictures/fridge.png';
+      textElement.innerHTML='YIKES...UNLESS YOU WANT YOUR GUESTS TO STARVE, YOU BETTER START RUNNING TO THE STORE.';
+    }else if(choice==='store'){
+      imageElement.src='pictures/store.png';
+      textElement.innerHTML='YOU ARRIVED AT THE STORE. WHICH ONE OF THESE LOVELY CAKES WILL YOU BUY?';
+    }
+    
+</script>
     
   </body>
 </html>
