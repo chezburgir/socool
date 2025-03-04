@@ -88,7 +88,7 @@
     <button id="restart" onclick="resetGame()">RESTART</button>
 
     <script>
-      let storeImageVisible = false;
+      let storeImageVisible = false; // Track if store image should stay
 
       function chooseOption(choice) {
         var imageElement = document.getElementById('image');
@@ -108,7 +108,7 @@
           imageElement.src = 'pictures/store.png';
           textElement.innerHTML = 'YOU ARRIVED AT THE STORE. WHICH ONE OF THESE LOVELY CAKES WILL YOU BUY?';
           cakeOptions.style.display = 'block';
-          storeImageVisible = true;
+          storeImageVisible = true; // Store image should stay when going back
         }
       }
 
@@ -120,6 +120,7 @@
         var imageElement = document.getElementById('image');
 
         cakeOptions.style.display = 'none';
+        imageElement.style.display = 'none'; // Hide image when choosing a cake
 
         if (cake === 'hedgehog') {
           textElement.innerHTML = 'YOU DIDN’T HAVE ENOUGH FOR IT. PICK ANOTHER ONE.';
@@ -128,7 +129,7 @@
           textElement.innerHTML = 'YOU DROPPED THE CAKE WHILE WALKING BACK HOME. GO FUCKING GET ANOTHER ONE.';
           goBackButton.style.display = 'inline-block';
         } else if (cake === 'spongebob') {
-          textElement.innerHTML = 'YOU SUCCESSFULLY BROUGHT THE CAKE BACK HOME. YOUR ONLY GUEST, *ehem* weh, ENJOYED IT.';
+          textElement.innerHTML = 'YOU SUCCESSFULLY BROUGHT THE CAKE BACK HOME. YOUR ONLY GUEST *ehem* weh ENJOYED IT.';
           restartButton.style.display = 'inline-block';
         }
       }
@@ -145,7 +146,7 @@
 
         if (storeImageVisible) {
           imageElement.src = 'pictures/store.png';
-          imageElement.style.display = 'block';
+          imageElement.style.display = 'block'; // Restore store image if it was there before
         }
       }
 
@@ -166,8 +167,9 @@
         goBackButton.style.display = 'none';
         restartButton.style.display = 'none';
         restartFridgeButton.style.display = 'none';
-        storeImageVisible = false;
+        storeImageVisible = false; // Reset store image state
       }
     </script>
   </body>
 </html>
+
