@@ -36,12 +36,14 @@
     <a href="index.html" class="homepage-link">BACK</a>
     <div>
        <audio id="audio" src="pictures/bday 8bit.mp3" autostart="false"></audio>
-     <button onclick="clickPRESSMENOW();">PRESS ME NOW!!!</button>
+       <button onclick="startLoopingAudio();">PRESS ME NOW!!!</button>
     </div>
     <script>
-      function clickPRESSMENOW(){
+       function startLoopingAudio() {
         var sound = document.getElementById('audio');
-      }
+        sound.loop = true; // Make the audio repeat forever
+        sound.play().catch(error => console.log("Audio play failed:", error));
+       }
     </script>
      <img src="pictures/cat bday.png">
   </body>
