@@ -67,8 +67,9 @@
         var sound = document.getElementById('audio');
         var confetti = document.getElementById('confetti-overlay');
 
+        confetti.style.background = "none"; 
         void confetti.offsetWidth;
-        confetti.style.background = "url('pictures/throw confetti.gif') center/cover no-repeat";
+        
         
         sound.currentTime = 0;
         sound.play().then(() => {
