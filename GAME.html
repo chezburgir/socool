@@ -35,7 +35,7 @@
         justify-content: center;
         margin-top: 20px;
       }
-      #image {
+      #image, #cake-image {
         width: 300px;
         height: auto;
         display: none;
@@ -75,6 +75,7 @@
 
     <div id="image-container">
       <img id="image"/>
+      <img id="cake-image"/>
     </div>
 
     <div id="cake-options" style="display: none;">
@@ -118,18 +119,23 @@
         var goBackButton = document.getElementById('go-back');
         var restartButton = document.getElementById('restart');
         var imageElement = document.getElementById('image');
+        var cakeImage = document.getElementById('cake-image');
 
         cakeOptions.style.display = 'none';
-        imageElement.style.display = 'none'; // Hide image when choosing a cake
+        imageElement.style.display = 'none'; // Hide store image
+        cakeImage.style.display = 'block'; // Show cake-related image
 
         if (cake === 'hedgehog') {
           textElement.innerHTML = 'YOU DIDN’T HAVE ENOUGH FOR IT. PICK ANOTHER ONE.';
+          cakeImage.src = 'pictures/creature.png';
           goBackButton.style.display = 'inline-block';
         } else if (cake === 'garfield') {
           textElement.innerHTML = 'YOU DROPPED THE CAKE WHILE WALKING BACK HOME. GO FUCKING GET ANOTHER ONE.';
+          cakeImage.src = 'pictures/pou.png';
           goBackButton.style.display = 'inline-block';
         } else if (cake === 'spongebob') {
           textElement.innerHTML = 'YOU SUCCESSFULLY BROUGHT THE CAKE BACK HOME. YOUR ONLY GUEST *ehem* weh ENJOYED IT.';
+          cakeImage.src = 'pictures/osaka bday.png';
           restartButton.style.display = 'inline-block';
         }
       }
@@ -139,10 +145,12 @@
         var cakeOptions = document.getElementById('cake-options');
         var goBackButton = document.getElementById('go-back');
         var imageElement = document.getElementById('image');
+        var cakeImage = document.getElementById('cake-image');
 
         textElement.innerHTML = 'YOU ARRIVED AT THE STORE. WHICH ONE OF THESE LOVELY CAKES WILL YOU BUY?';
         cakeOptions.style.display = 'block';
         goBackButton.style.display = 'none';
+        cakeImage.style.display = 'none'; // Hide cake images when going back
 
         if (storeImageVisible) {
           imageElement.src = 'pictures/store.png';
@@ -153,6 +161,7 @@
       function resetGame() {
         var textElement = document.getElementById('text');
         var imageElement = document.getElementById('image');
+        var cakeImage = document.getElementById('cake-image');
         var options = document.querySelectorAll('.option');
         var cakeOptions = document.getElementById('cake-options');
         var goBackButton = document.getElementById('go-back');
@@ -162,14 +171,14 @@
         textElement.innerHTML = 'TODAY, MARCH 4TH, IS YOUR BIRTHDAY! TO CELEBRATE, YOU HAVE DECIDED TO THROW A PARTY AND INVITE ALL YOUR FRIENDS. LUCKILY, YOU DON’T HAVE MANY OF THEM, SO IT SHOULDN’T TAKE LONG TO PREPARE. YOU HAVE 1 HOUR UNTIL THE PARTY STARTS AND YOU MUST OBTAIN SOME FOOD FOR THE GUESTS. WHERE SHOULD YOU GO?';
 
         imageElement.style.display = 'none';
+        cakeImage.style.display = 'none';
         options.forEach(button => button.style.display = 'inline-block');
         cakeOptions.style.display = 'none';
         goBackButton.style.display = 'none';
         restartButton.style.display = 'none';
         restartFridgeButton.style.display = 'none';
-        storeImageVisible = false; // Reset store image state
+        storeImageVisible = false;
       }
     </script>
   </body>
 </html>
-
