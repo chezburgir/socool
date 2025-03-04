@@ -44,7 +44,7 @@
         margin-top: 20px;
         font-size: 26px;
       }
-      #try-again, #restart, #go-back {
+      #restart-fridge, #restart, #go-back {
         display: none;
         margin-top: 20px;
         padding: 10px 20px;
@@ -55,7 +55,7 @@
         cursor: pointer;
         border-radius: 5px;
       }
-      #try-again:hover, #restart:hover, #go-back:hover {
+      #restart-fridge:hover, #restart:hover, #go-back:hover {
         background-color: #666;
       }
     </style>
@@ -84,14 +84,18 @@
     </div>
 
     <button id="go-back" onclick="showCakeOptions()">GO BACK</button>
+    <button id="restart-fridge" onclick="resetGame()">RESTART</button>
     <button id="restart" onclick="resetGame()">RESTART</button>
 
     <script>
+      let storeImageVisible = false;
+
       function chooseOption(choice) {
         var imageElement = document.getElementById('image');
         var textElement = document.getElementById('text');
         var options = document.querySelectorAll('.option');
         var cakeOptions = document.getElementById('cake-options');
+        var restartFridgeButton = document.getElementById('restart-fridge');
 
         imageElement.style.display = 'block';
         options.forEach(button => button.style.display = 'none');
@@ -99,10 +103,12 @@
         if (choice === 'fridge') {
           imageElement.src = 'pictures/fridge.jpg';
           textElement.innerHTML = 'YIKES...UNLESS YOU WANT YOUR GUESTS TO STARVE, YOU BETTER START RUNNING TO THE STORE.';
+          restartFridgeButton.style.display = 'inline-block'; // Show restart button only here
         } else if (choice === 'store') {
           imageElement.src = 'pictures/store.png';
           textElement.innerHTML = 'YOU ARRIVED AT THE STORE. WHICH ONE OF THESE LOVELY CAKES WILL YOU BUY?';
           cakeOptions.style.display = 'block';
+          storeImageVisible = true;
         }
       }
 
@@ -114,7 +120,6 @@
         var imageElement = document.getElementById('image');
 
         cakeOptions.style.display = 'none';
-        imageElement.style.display = 'none'; // Hides the image when selecting a cake
 
         if (cake === 'hedgehog') {
           textElement.innerHTML = 'YOU DIDN’T HAVE ENOUGH FOR IT. PICK ANOTHER ONE.';
@@ -123,7 +128,7 @@
           textElement.innerHTML = 'YOU DROPPED THE CAKE WHILE WALKING BACK HOME. GO FUCKING GET ANOTHER ONE.';
           goBackButton.style.display = 'inline-block';
         } else if (cake === 'spongebob') {
-          textElement.innerHTML = 'YOU SUCCESSFULLY BROUGHT THE CAKE BACK HOME. YOUR ONLY GUEST *ehem* weh ENJOYED IT.';
+          textElement.innerHTML = 'YOU SUCCESSFULLY BROUGHT THE CAKE BACK HOME. YOUR ONLY GUEST, *ehem* weh, ENJOYED IT.';
           restartButton.style.display = 'inline-block';
         }
       }
@@ -132,10 +137,16 @@
         var textElement = document.getElementById('text');
         var cakeOptions = document.getElementById('cake-options');
         var goBackButton = document.getElementById('go-back');
+        var imageElement = document.getElementById('image');
 
         textElement.innerHTML = 'YOU ARRIVED AT THE STORE. WHICH ONE OF THESE LOVELY CAKES WILL YOU BUY?';
         cakeOptions.style.display = 'block';
         goBackButton.style.display = 'none';
+
+        if (storeImageVisible) {
+          imageElement.src = 'pictures/store.png';
+          imageElement.style.display = 'block';
+        }
       }
 
       function resetGame() {
@@ -145,6 +156,7 @@
         var cakeOptions = document.getElementById('cake-options');
         var goBackButton = document.getElementById('go-back');
         var restartButton = document.getElementById('restart');
+        var restartFridgeButton = document.getElementById('restart-fridge');
 
         textElement.innerHTML = 'TODAY, MARCH 4TH, IS YOUR BIRTHDAY! TO CELEBRATE, YOU HAVE DECIDED TO THROW A PARTY AND INVITE ALL YOUR FRIENDS. LUCKILY, YOU DON’T HAVE MANY OF THEM, SO IT SHOULDN’T TAKE LONG TO PREPARE. YOU HAVE 1 HOUR UNTIL THE PARTY STARTS AND YOU MUST OBTAIN SOME FOOD FOR THE GUESTS. WHERE SHOULD YOU GO?';
 
@@ -153,6 +165,8 @@
         cakeOptions.style.display = 'none';
         goBackButton.style.display = 'none';
         restartButton.style.display = 'none';
+        restartFridgeButton.style.display = 'none';
+        storeImageVisible = false;
       }
     </script>
   </body>
