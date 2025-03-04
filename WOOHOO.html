@@ -67,21 +67,18 @@
         var sound = document.getElementById('audio');
         var confetti = document.getElementById('confetti-overlay');
 
-        var confettiImg = document.createElement("img");
-        confettiImg.src = "pictures/throw confetti.gif?random=" + new Date().getTime();
-        confetti.appendChild(confettiIMG);
+        confetti.style.backgroundImage = "none"; 
+        void confetti.offsetWidth;
+        confetti.style.backgroundImage = "url('pictures/throw confetti.gif')";
 
-        confettiContainer.style.display = "block";
+        confetti.style.display = "block";
 
-        
         sound.currentTime = 0;
-        sound.play().then(() => {
-          setTimeout(() => {
-            confettiContainer.style.display = "none";
-          }, 2000);
-        }).catch(error => {
-          console.log("Audio play error:", error);
-        });
+        sound.play().catch(error => console.log("Audio play error:", error));
+        
+        setTimeout(() => {
+          confetti.style.display = "none";
+        }, 2000);
       }
     </script>
     
