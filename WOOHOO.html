@@ -67,15 +67,20 @@
         var sound = document.getElementById('audio');
         var confetti = document.getElementById('confetti-overlay');
 
-        confetti.style.backgroundImage = "none"; 
-        void confetti.offsetWidth;
-        confetti.style.backgroundImage = "url('pictures/throw confetti.gif')";
+        confetti.innerHTML = "";
+        
+        var confettiImg = document.createElement("img");
+        confettiImg.src = "pictures/throw confetti.gif?random=" + new Date().getTime();
+        confettiImg.style.width = "100%";
+        confettiImg.style.height = "100%";
+        confettiImg.style.position = "absolute";
 
+        confetti.appendChild(confettiImg);
         confetti.style.display = "block";
 
         sound.currentTime = 0;
         sound.play().catch(error => console.log("Audio play error:", error));
-        
+
         setTimeout(() => {
           confetti.style.display = "none";
         }, 2000);
