@@ -2,7 +2,7 @@
   <head>
     <title>GAME</title>
     <style>
-      body{
+      body {
         text-align: center;
       }
        a {
@@ -31,11 +31,29 @@
         margin-top:20px;
         text-align:center;
       }
-      image{
-        margin-top: 20px;
-        width:300px;
-        height:auto;
+     #image {
+            margin-top: 20px;
+            width: 300px;
+            height: auto;
       }
+      #text {
+    margin-top: 20px;
+    font-size: 26px;
+      }
+       #try-again {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #444;
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+           }
+       #try-again:hover {
+            background-color: #666;
+        }
    </style>
   </head>
   <body>
@@ -43,20 +61,22 @@
       <p id="text">TODAY, MARCH 4TH, IS YOUR BIRTHDAY! TO CELEBRATE, YOU HAVE DECIDED TO THROW A PARTY AND INVITE ALL YOUR FRIENDS. LUCKILY, YOU DONT HAVE MANY OF THEM, SO IT SHOULDN TAKE LONG TO PREPARE. YOU HAVE 1 HOUR UNTIL THE PARTY STARTS AND YOU MUST OBTAIN SOME FOOD FOR THE GUESTS. WHERE SHOULD YOU GO?</p>
 
     <div class="button-container">
-      <button class="option"
-        onclick="chooseOption('fridge')">GO TO THE FRIDGE</button>
-      <button class="option"
-        onclick="chooseOption('store')">GO TO THE STORE</button>
+      <button class="option" onclick="chooseOption('fridge')">GO TO THE FRIDGE</button>
+      <button class="option" onclick="chooseOption('store')">GO TO THE STORE</button>
     </div>
-
-     <img id="fridge" src="pictures/fridge.jpg" alt="fridge" />
-    <img id="store" src="pictures/store.png" alt="store"/>
 
 <script>
   function chooseOption(choice) {
             var imageElement = document.getElementById('image');
             var textElement = document.getElementById('text');
             var options = document.querySelectorAll('.option');
+            var tryAgainButton = document.getElementById('try-again');
+
+     options.forEach(function(button) {
+                button.style.display = 'none';
+            });
+
+     tryAgainButton.style.display = 'inline-block';
 
     if (choice === 'fridge') {
                 imageElement.src = 'pictures/fridge.jpg';
@@ -66,8 +86,21 @@
                 textElement.innerHTML = 'YOU ARRIVED AT THE STORE. WHICH ONE OF THESE LOVELY CAKES WILL YOU BUY?';
             }
         }
+  
+        function resetGame() {
+            var imageElement = document.getElementById('image');
+            var textElement = document.getElementById('text');
+            var options = document.querySelectorAll('.option');
+            var tryAgainButton = document.getElementById('try-again');
 
-</script>
-    
+          textElement.innerHTML = 'TODAY, MARCH 4TH, IS YOUR BIRTHDAY! TO CELEBRATE, YOU HAVE DECIDED TO THROW A PARTY AND INVITE ALL YOUR FRIENDS. LUCKILY, YOU DONT HAVE MANY OF THEM, SO IT SHOULDN TAKE LONG TO PREPARE. YOU HAVE 1 HOUR UNTIL THE PARTY STARTS AND YOU MUST OBTAIN SOME FOOD FOR THE GUESTS. WHERE SHOULD YOU GO?'
+
+          options.forEach(function(button) {
+                button.style.display = 'inline-block';
+            });
+
+          tryAgainButton.style.display = 'none';
+        }
+   </script>
   </body>
 </html>
