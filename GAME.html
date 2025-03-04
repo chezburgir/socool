@@ -68,6 +68,8 @@
       <button class="option" onclick="chooseOption('store')">GO TO THE STORE</button>
     </div>
 
+    <img id="image" style="display: none; margin-top: 20px; width: 300px; height: auto;"/>
+    
     <button id="try-again" onclick="resetGame()">TRY AGAIN</button>
     
 <script>
@@ -100,7 +102,7 @@
             var options = document.querySelectorAll('.option');
             var tryAgainButton = document.getElementById('try-again');
 
-          textElement.innerHTML = 'TODAY, MARCH 4TH, IS YOUR BIRTHDAY! TO CELEBRATE, YOU HAVE DECIDED TO THROW A PARTY AND INVITE ALL YOUR FRIENDS. LUCKILY, YOU DONT HAVE MANY OF THEM, SO IT SHOULDN TAKE LONG TO PREPARE. YOU HAVE 1 HOUR UNTIL THE PARTY STARTS AND YOU MUST OBTAIN SOME FOOD FOR THE GUESTS. WHERE SHOULD YOU GO?'
+          textElement.innerHTML = 'TODAY, MARCH 4TH, IS YOUR BIRTHDAY! TO CELEBRATE, YOU HAVE DECIDED TO THROW A PARTY AND INVITE ALL YOUR FRIENDS. LUCKILY, YOU DONT HAVE MANY OF THEM, SO IT SHOULDN TAKE LONG TO PREPARE. YOU HAVE 1 HOUR UNTIL THE PARTY STARTS AND YOU MUST OBTAIN SOME FOOD FOR THE GUESTS. WHERE SHOULD YOU GO?';
 
           imageElement.style.display = 'none';
           
