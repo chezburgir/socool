@@ -8,14 +8,14 @@
        a {
   display: table;
   margin: 0px auto 0px auto;
-  pading:5px;background-color:white;color:#000000;
+  padding:5px;background-color:white;color:#000000;
   position: static;
   top: 70px;
   text-align: center;
        }
       .option{
         display:inline-block;
-        margin:10px
+        margin:10px;
         padding:10px 20px;
         background-color:#ffffff
         color:black;
@@ -42,12 +42,15 @@
      <a href="index.html" class="homepage-link">BACK</a>
       <p id="text">TODAY, MARCH 4TH, IS YOUR BIRTHDAY! TO CELEBRATE, YOU HAVE DECIDED TO THROW A PARTY AND INVITE ALL YOUR FRIENDS. LUCKILY, YOU DONT HAVE MANY OF THEM, SO IT SHOULDN TAKE LONG TO PREPARE. YOU HAVE 1 HOUR UNTIL THE PARTY STARTS AND YOU MUST OBTAIN SOME FOOD FOR THE GUESTS. WHERE SHOULD YOU GO?</p>
 
-    <div class="button container">
+    <div class="button-container">
       <button class="option"
         onclick="chooseOption('fridge')">GO TO THE FRIDGE</button>
       <button class="option"
         onclick="chooseOption('store')">GO TO THE STORE</button>
     </div>
+
+     <img id="fridge" src="pictures/fridge.jpg" alt="fridge" />
+    <img id="store" src="pictures/store.png" alt="store"/>
 
 <script>
   function chooseOption(choice) {
