@@ -66,7 +66,10 @@
       function clickYAY(){
         var sound = document.getElementById('audio');
         var confetti = document.getElementById('confetti-overlay');
-      
+
+        void confetti.offsetWidth;
+        confetti.style.background = "url('pictures/throw confetti.gif') center/cover no-repeat";
+        
         sound.currentTime = 0;
         sound.play().then(() => {
          
