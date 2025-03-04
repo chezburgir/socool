@@ -36,7 +36,7 @@
         margin-top: 20px;
       }
       #image, #cake-image {
-        width: 300px;
+        width: 500px;
         height: auto;
         display: none;
       }
@@ -64,7 +64,7 @@
     <a href="index.html" class="homepage-link">BACK</a>
     <p id="text">
       TODAY, MARCH 4TH, IS YOUR BIRTHDAY! TO CELEBRATE, YOU HAVE DECIDED TO THROW A PARTY AND INVITE ALL YOUR FRIENDS. 
-      LUCKILY, YOU DON’T HAVE MANY OF THEM, SO IT SHOULDN’T TAKE LONG TO PREPARE. 
+      LUCKILY, YOU DONT HAVE MANY OF THEM, SO IT SHOULDNT TAKE LONG TO PREPARE. 
       YOU HAVE 1 HOUR UNTIL THE PARTY STARTS AND YOU MUST OBTAIN SOME FOOD FOR THE GUESTS. WHERE SHOULD YOU GO?
     </p>
 
@@ -89,7 +89,7 @@
     <button id="restart" onclick="resetGame()">RESTART</button>
 
     <script>
-      let storeImageVisible = false; // Track if store image should stay
+      let storeImageVisible = false;
 
       function chooseOption(choice) {
         var imageElement = document.getElementById('image');
@@ -104,12 +104,12 @@
         if (choice === 'fridge') {
           imageElement.src = 'pictures/fridge.jpg';
           textElement.innerHTML = 'YIKES...UNLESS YOU WANT YOUR GUESTS TO STARVE, YOU BETTER START RUNNING TO THE STORE.';
-          restartFridgeButton.style.display = 'inline-block'; // Show restart button only here
+          restartFridgeButton.style.display = 'inline-block';
         } else if (choice === 'store') {
           imageElement.src = 'pictures/store.png';
           textElement.innerHTML = 'YOU ARRIVED AT THE STORE. WHICH ONE OF THESE LOVELY CAKES WILL YOU BUY?';
           cakeOptions.style.display = 'block';
-          storeImageVisible = true; // Store image should stay when going back
+          storeImageVisible = true;
         }
       }
 
@@ -122,16 +122,16 @@
         var cakeImage = document.getElementById('cake-image');
 
         cakeOptions.style.display = 'none';
-        imageElement.style.display = 'none'; // Hide store image
-        cakeImage.style.display = 'block'; // Show cake-related image
+        imageElement.style.display = 'none';
+        cakeImage.style.display = 'block';
 
         if (cake === 'hedgehog') {
-          textElement.innerHTML = 'YOU DIDN’T HAVE ENOUGH FOR IT. PICK ANOTHER ONE.';
-          cakeImage.src = 'pictures/creature.png';
+          textElement.innerHTML = 'YOU DIDNT HAVE ENOUGH FOR IT. PICK ANOTHER ONE.';
+          cakeImage.src = 'pictures/creature.jpg';
           goBackButton.style.display = 'inline-block';
         } else if (cake === 'garfield') {
           textElement.innerHTML = 'YOU DROPPED THE CAKE WHILE WALKING BACK HOME. GO FUCKING GET ANOTHER ONE.';
-          cakeImage.src = 'pictures/pou.png';
+          cakeImage.src = 'pictures/pou.jpg';
           goBackButton.style.display = 'inline-block';
         } else if (cake === 'spongebob') {
           textElement.innerHTML = 'YOU SUCCESSFULLY BROUGHT THE CAKE BACK HOME. YOUR ONLY GUEST *ehem* weh ENJOYED IT.';
@@ -150,11 +150,11 @@
         textElement.innerHTML = 'YOU ARRIVED AT THE STORE. WHICH ONE OF THESE LOVELY CAKES WILL YOU BUY?';
         cakeOptions.style.display = 'block';
         goBackButton.style.display = 'none';
-        cakeImage.style.display = 'none'; // Hide cake images when going back
+        cakeImage.style.display = 'none';
 
         if (storeImageVisible) {
           imageElement.src = 'pictures/store.png';
-          imageElement.style.display = 'block'; // Restore store image if it was there before
+          imageElement.style.display = 'block';
         }
       }
 
@@ -168,7 +168,7 @@
         var restartButton = document.getElementById('restart');
         var restartFridgeButton = document.getElementById('restart-fridge');
 
-        textElement.innerHTML = 'TODAY, MARCH 4TH, IS YOUR BIRTHDAY! TO CELEBRATE, YOU HAVE DECIDED TO THROW A PARTY AND INVITE ALL YOUR FRIENDS. LUCKILY, YOU DON’T HAVE MANY OF THEM, SO IT SHOULDN’T TAKE LONG TO PREPARE. YOU HAVE 1 HOUR UNTIL THE PARTY STARTS AND YOU MUST OBTAIN SOME FOOD FOR THE GUESTS. WHERE SHOULD YOU GO?';
+        textElement.innerHTML = 'TODAY, MARCH 4TH, IS YOUR BIRTHDAY! TO CELEBRATE, YOU HAVE DECIDED TO THROW A PARTY AND INVITE ALL YOUR FRIENDS. LUCKILY, YOU DONT HAVE MANY OF THEM, SO IT SHOULDNT TAKE LONG TO PREPARE. YOU HAVE 1 HOUR UNTIL THE PARTY STARTS AND YOU MUST OBTAIN SOME FOOD FOR THE GUESTS. WHERE SHOULD YOU GO?';
 
         imageElement.style.display = 'none';
         cakeImage.style.display = 'none';
