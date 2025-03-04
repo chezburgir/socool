@@ -103,10 +103,12 @@
 
         if (choice === 'fridge') {
           imageElement.src = 'pictures/fridge.jpg';
+          imageElement.onload = () => imageElement.style.display = 'block';
           textElement.innerHTML = 'YIKES...UNLESS YOU WANT YOUR GUESTS TO STARVE, YOU BETTER START RUNNING TO THE STORE.';
           restartFridgeButton.style.display = 'inline-block';
         } else if (choice === 'store') {
           imageElement.src = 'pictures/store.png';
+          imageElement.onload = () => imageElement.style.display = 'block';
           textElement.innerHTML = 'YOU ARRIVED AT THE STORE. WHICH ONE OF THESE LOVELY CAKES WILL YOU BUY?';
           cakeOptions.style.display = 'block';
           storeImageVisible = true;
@@ -128,14 +130,17 @@
         if (cake === 'hedgehog') {
           textElement.innerHTML = 'YOU DIDNT HAVE ENOUGH FOR IT. PICK ANOTHER ONE.';
           cakeImage.src = 'pictures/creature.jpg';
+          imageElement.onload = () => imageElement.style.display = 'block';
           goBackButton.style.display = 'inline-block';
         } else if (cake === 'garfield') {
           textElement.innerHTML = 'YOU DROPPED THE CAKE WHILE WALKING BACK HOME. GO FUCKING GET ANOTHER ONE.';
           cakeImage.src = 'pictures/pou.jpg';
+          imageElement.onload = () => imageElement.style.display = 'block';
           goBackButton.style.display = 'inline-block';
         } else if (cake === 'spongebob') {
           textElement.innerHTML = 'YOU SUCCESSFULLY BROUGHT THE CAKE BACK HOME. YOUR ONLY GUEST, *ehem* weh, ENJOYED IT.';
           cakeImage.src = 'pictures/osaka bday.png';
+          imageElement.onload = () => imageElement.style.display = 'block';
           restartButton.style.display = 'inline-block';
         }
       }
